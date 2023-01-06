@@ -1,4 +1,4 @@
-var finances = [
+let finances = [
 ['Jan-2010', 867884],
 ['Feb-2010', 984655],
 ['Mar-2010', 322013],
@@ -86,3 +86,70 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+
+//1. varibles
+
+ let months = finances.length; 
+ let total = 0; 
+ let change = 0; 
+ let average; 
+ let analysis; 
+ let net = 0; 
+ let netArray = []; 
+ let netChangeSum = 0; 
+let least = ['', 9999999999999]
+let greatest = ['', 0]
+
+ //2. Loops
+
+//Total months-------------------------------------------------
+
+  for(let index = 0; index < finances.length; index++){
+    console.log (finances[index][0])
+    total += finances[index][1]
+ }
+
+ //Total--------------------------------------------------------
+
+for(let index = 0; index < finances.length; index++) {
+    for(let index2 = 0; index2 < finances[index].length; index2++) {
+
+        if(typeof finances [index][index2] !=='string'){
+            total += finances[index][index2]; //+= in long hand means total = total + finances[index][index2]
+            change = finances[index][index2] - net;
+            net = finances[index][index2];
+            netArray.push(change); //push store this vaule in a list array so that we can get the changes
+
+            if(change > greatest[1]){
+                greatest = [finances[index][0], finances[index][1]]
+            }
+
+            if(change < least[1]){
+                least = [finances[index][0], finances[index][1]]
+            }
+        }
+    }
+}
+
+//Net sum---------------------------------------------------------
+
+for(let index =0; index < netArray.length; index++){
+    netChangeSum += netArray[index];
+}
+
+//Average--------------------------------------------------------------
+
+average = Math.round ((netChangeSum / finances.length) * 100) /100;
+
+//Analysis----------------------------------------------------------------
+
+ console.log(`
+ Financial Analysis
+ --------------------------
+ Total Months:${months}
+ Total:$${total}
+ Average Change:$${average}
+ Greatest Increase in Profits: ${greatest[0]} ($${greatest[1]})
+ Greatest Decrease in Profits: ${least[0]} ($${least[1]})
+ `)
