@@ -2,12 +2,7 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+My motivation for this project was to creat Javascript code to analyse the financial records of a given company. I built this project to make it more assessible and easier for the company to analyse their financial records. In doing so it will save time for the users, as the financial dataset doesnt need to be analyse manually it adds a more efficient way of working.
 
 ## Screenshots
 
